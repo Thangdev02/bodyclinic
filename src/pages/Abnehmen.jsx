@@ -8,60 +8,28 @@ import TimelineSection from "../components/Home/TimelineSection"
 import BMICalculator from "../components/Home/BMICalculator"
 import Testimonials from "../components/Home/Testimonials"
 import DoctorsSection from "../components/Home/DoctorsSection"
+import Finden from "../components/Home/Finden"
 
 // ============ HERO SECTION ============
 const HeroSection = () => {
     return (
       <>
-        <div className="hero-section">
-          <div className="hero-content">
-            <h1 className="hero-title">
-              Abnehmen mit
-              <br />
-              Spritzen
-            </h1>
-  
-            <div className="hero-features">
-              <div className="feature-item">
-                <span className="checkmark">✓</span>
-                <span>Klinisch bewährte Behandlungen bis 22% Gewichtsverlust</span>
-              </div>
-              <div className="feature-item">
-                <span className="checkmark">✓</span>
-                <span>Ärztliche Betreuung – vor Ort oder Online</span>
-              </div>
-              <div className="feature-item">
-                <span className="checkmark">✓</span>
-                <span>Medikamentenlieferung direkt nach Hause¹</span>
-              </div>
-              <div className="feature-item">
-                <span className="checkmark">✓</span>
-                <span>Persönliches Coaching und Online-Fitnessplattform</span>
-              </div>
-            </div>
-  
-            <div className="hero-rating">
-              <div className="stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} fill="currentColor" className="star-icon" />
-                ))}
-              </div>
-              <span className="rating-text">5,0 auf Google</span>
-            </div>
-  
-            <button className="btn-primary">Termin vereinbaren</button>
-          </div>
-  
-          <div className="hero-image-container">
-            <img src="abbanner.webp" alt="Doctor consultation" className="hero-image" />
-          </div>
-  
-          <div className="hero-circles">
-            <div className="circle circle-1"></div>
-            <div className="circle circle-2"></div>
-            <div className="circle circle-3"></div>
-          </div>
-        </div>
+       <div className="hero-section">
+  <div className="hero-content container">
+    <h1 className="hero-title">
+      Medizinisches <br /> Abnehmen
+    </h1>
+    <p className="text-3xl">Programme</p>
+  </div>
+
+  {/* Shapes */}
+  <div className="hero-shapes">
+    <div className="shape shape-1"></div>
+    <div className="shape shape-2"></div>
+    <div className="shape shape-3"></div>
+  </div>
+</div>
+
   
         <div className="author-info">
           <img src="./avtdoctor.webp" alt="Dr. Nicolette Lammers" className="avatar" />
@@ -376,9 +344,8 @@ export default function AbnehmenPage() {
   return (
     <div className="abnehmen-page">
       <HeroSection />
-   
-      <ProgramComparisonSection />
- <TimelineSection />
+      {/* <ProgramComparisonSection /> */}
+ <Finden />
  <BMICalculator />
       <MedicationInfoSection />
          <Testimonials />
