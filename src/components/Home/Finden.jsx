@@ -38,7 +38,7 @@ export default function Finden() {
   ]
 
   return (
-    <section className=" bg-gradient-to-b from-[#f3efeb] to-[#f3efeb] py-20 px-4">
+    <section className=" bg-gradient-to-b from-[#ede8e2] to-[#ede8e2] py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-bold text-start mb-4 text-gray-900">Finden Sie Ihre Abnehmethode</h2>
         <p className="text-start text-gray-700 mb-16 text-lg">

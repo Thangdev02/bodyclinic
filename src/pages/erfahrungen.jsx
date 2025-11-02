@@ -2,21 +2,44 @@
 
 import { useState } from "react"
 import "./erfahrungen.css"
+import Testimonials from "../components/Home/Testimonials"
+import { BiMessageRounded } from "react-icons/bi";
+import { FaAppleAlt } from "react-icons/fa";
+import { GiStumpRegrowth } from "react-icons/gi";
+import { IoIosWarning } from "react-icons/io";
+import Finden from "../components/Home/Finden";
+import CTASection from "../components/Home/CTASection";
 
 // Hero Section Component
-const HeroSection = () => (
-  <div className="erfahrungen-hero">
-    <div className="hero-breadcrumb">Home / Erfahrungen</div>
-    <div className="hero-decorative-circle circle-1"></div>
-    <div className="hero-decorative-circle circle-2"></div>
-    <h1 className="hero-title">Kundenbewertungen</h1>
-    <p className="hero-subtitle">The Body Clinic: Höchste Qualität & echte Erfolge</p>
-  </div>
-)
+const HeroSection = () => {
+  return (
+    <>
+      <div className="hero-section">
+        <div className="hero-content container">
+          <h1 className="hero-title">
+            Kundenbewertungen
+          </h1>
+          <p style={{ fontWeight: 'lighter' }} className="text-3xl">The Body Clinic: Höchste Qualität & echte Erfolge
+          </p>
+        </div>
+
+        {/* Shapes */}
+        <div className="hero-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+      </div>
+
+
+
+    </>
+  )
+}
 
 // Stats Section Component
 const StatsSection = () => (
-  <div className="stats-section">
+  <div className="stats-section border-t border-white">
     <div className="stats-container">
       <div className="stat-card">
         <div className="stat-number">22%</div>
@@ -46,23 +69,23 @@ const TimelineSection = () => {
     "1-3": {
       benefits: [
         {
-          icon: "😊",
+          icon: BiMessageRounded,
           title: "Verbesserte Laune und Wohlbefinden, mehr Energie",
           description: "Patienten berichten von verbesserter Stimmung und erhöhter Energie.",
         },
         {
-          icon: "🍎",
+          icon: FaAppleAlt,
           title: "Konstanter Gewichtsverlust",
           description: "Stetiger Gewichtsverlust über die ersten 3 Monate.",
         },
         {
-          icon: "⬇️",
+          icon: GiStumpRegrowth,
           title: "Größeres Gefühl der Selbstkontrolle",
           description: "Verbessertes Sättigungsgefühl und Appetitekontrolle.",
         },
-        { icon: "🚫", title: "Weniger Heißhungerattacken", description: "Reduzierte Gelüste und Heißhungerattacken." },
+        { icon: IoIosWarning, title: "Möglicherweise Nebenwirkungen der Medikamente", description: "Reduzierte Gelüste und Heißhungerattacken." },
       ],
-      image: "./timeline-1-3.png",
+      image: "./stasweigh.webp",
       startWeight: "98 kg",
       month2Weight: "92 kg (-6kg)",
       note: "Beispiel für den Gewichtsverlust einer Patentin.",
@@ -70,23 +93,23 @@ const TimelineSection = () => {
     "3-6": {
       benefits: [
         {
-          icon: "😊",
+          icon: BiMessageRounded,
           title: "Deutlichere Verbesserung der Stimmung",
           description: "Weitere Verbesserung des Wohlbefindens.",
         },
         {
-          icon: "🍎",
+          icon: FaAppleAlt,
           title: "Kontinuierlicher Gewichtsverlust",
           description: "Anhaltender Gewichtsverlust mit besseren Ergebnissen.",
         },
-        { icon: "⬇️", title: "Starke Selbstkontrolle etabliert", description: "Etablierung gesunder Essgewohnheiten." },
+        { icon: GiStumpRegrowth, title: "Starke Selbstkontrolle etabliert", description: "Etablierung gesunder Essgewohnheiten." },
         {
-          icon: "💪",
+          icon: IoIosWarning,
           title: "Erhöhte körperliche Aktivität",
           description: "Mehr Energie für körperliche Aktivitäten.",
         },
       ],
-      image: "./timeline-3-6.png",
+      image: "./stasweigh.webp",
       startWeight: "98 kg",
       month5Weight: "85 kg (-13kg)",
       note: "Beispiel für den Gewichtsverlust einer Patentin.",
@@ -94,19 +117,19 @@ const TimelineSection = () => {
     "6-12": {
       benefits: [
         {
-          icon: "😊",
+          icon: BiMessageRounded,
           title: "Stabile emotionale Verbesserung",
           description: "Langfristige positive Stimmungsveränderung.",
         },
         {
-          icon: "🍎",
+          icon: FaAppleAlt,
           title: "Signifikanter Gewichtsverlust",
           description: "Beeindruckende Gesamtergebnisse nach 12 Monaten.",
         },
-        { icon: "⬇️", title: "Vollständige Selbstkontrolle", description: "Dauerhafte Essgewohnheitsumstellung." },
-        { icon: "⭐", title: "Erhöhtes Selbstvertrauen", description: "Verbessertes Körperbild und Selbstvertrauen." },
+        { icon: GiStumpRegrowth, title: "Vollständige Selbstkontrolle", description: "Dauerhafte Essgewohnheitsumstellung." },
+        { icon: IoIosWarning, title: "Erhöhtes Selbstvertrauen", description: "Verbessertes Körperbild und Selbstvertrauen." },
       ],
-      image: "./timeline-6-12.png",
+      image: "./stasweigh.webp",
       startWeight: "98 kg",
       month12Weight: "76 kg (-22kg)",
       note: "Beispiel für den Gewichtsverlust einer Patentin.",
@@ -141,24 +164,30 @@ const TimelineSection = () => {
           <div className="timeline-left">
             {currentData.benefits.map((benefit, index) => (
               <div key={index} className="benefit-card">
-                <div className="benefit-icon">{benefit.icon}</div>
+                <div className="benefit-icon text-2xl text-[black]">
+                  {typeof benefit.icon === "function" ? (
+                    <benefit.icon />
+                  ) : (
+                    benefit.icon
+                  )}
+                </div>
+
                 <div className="benefit-text">
                   <h4>{benefit.title}</h4>
-                  <p>{benefit.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="timeline-right">
-            <img src={currentData.image || "/placeholder.svg"} alt="Timeline" className="timeline-image" />
+            <img src={currentData.image || "./stasweigh.webp"} alt="Timeline" className="timeline-image rounded" />
             <div className="timeline-stats">
               <div className="timeline-stat">
-                <span className="stat-label">Startgewicht:</span>
-                <span className="stat-value">{currentData.startWeight}</span>
+                <span className="text-[black]">Startgewicht:</span>
+                <span className="text-[black]">{currentData.startWeight}</span>
               </div>
               <div className="timeline-stat">
-                <span className="stat-label">
+                <span className="text-[black]">
                   {activeTab === "1-3" ? "Monat 2" : activeTab === "3-6" ? "Monat 5" : "Monat 12"}:
                 </span>
                 <span className="stat-value">
@@ -169,7 +198,7 @@ const TimelineSection = () => {
                       : currentData.month12Weight}
                 </span>
               </div>
-              <p className="timeline-note">{currentData.note}²</p>
+              <p className="text-[black] " style={{ fontWeight: "lighter" }}>{currentData.note}²</p>
             </div>
           </div>
         </div>
@@ -183,7 +212,10 @@ const ErfahrungenPage = () => (
   <div className="erfahrungen-page">
     <HeroSection />
     <StatsSection />
+    <Testimonials />
     <TimelineSection />
+    <Finden/>
+    <CTASection/>
   </div>
 )
 

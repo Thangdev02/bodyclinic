@@ -5,3 +5,22 @@
 a{
   text-decoration: none !important;
 }
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out;
+}
+
+*{
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}

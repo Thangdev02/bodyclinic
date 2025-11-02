@@ -16,15 +16,15 @@ const MedicamentHeader = () => (
 // DOCTOR VERIFICATION
 // ============================================
 const DoctorVerification = () => (
-  <div className="doctor-verification">
-    <img src="./doctor-profile.png" alt="Dr. Nicolette Lammers" />
-    <div>
-      <p>Diese Seite wurde von</p>
-      <p>
-        <strong>Dr. Nicolette Lammers</strong> geprüft.
-      </p>
-    </div>
+  <div className="author-info">
+  <img src="./avtdoctor.webp" alt="Dr. Nicolette Lammers" className="avatar" />
+  <div>
+    <p>Diese Seite wurde von</p>
+    <p>
+           <span style={{color:'#568a9a'}}>Dr. Nicolette Lammers</span> geprüft.
+            </p>
   </div>
+</div>
 )
 
 // ============================================
@@ -32,12 +32,12 @@ const DoctorVerification = () => (
 // ============================================
 const MedicationsGrid = () => {
   const medications = [
-    { name: "Saxenda", logo: "./saxenda-logo.png" },
-    { name: "Ozempic", logo: "./ozempic-logo.png" },
-    { name: "Wegovy", logo: "./wegovy-logo.png" },
-    { name: "Mounjaro", logo: "./mounjaro-logo.png" },
-    { name: "Rybelsus", logo: "./rybelsus-logo.png" },
-    { name: "Mysimba", logo: "./mysimba-logo.png" },
+    { name: "Saxenda", logo: "./logosaxenda.webp" },
+    { name: "Ozempic", logo: "./logooze.webp" },
+    { name: "Wegovy", logo: "./logowe.webp" },
+    { name: "Mounjaro", logo: "./logomoun.webp" },
+    { name: "Rybelsus", logo: "./logorybe.webp" },
+    { name: "Mysimba", logo: "./logomyse.webp" },
   ]
 
   return (
@@ -113,7 +113,7 @@ const MedicamentePage = () => {
   const medicationsData = [
     {
       name: "Saxenda",
-      logo: "./saxenda-logo.png",
+      logo: "./logosaxenda.webp",
       description:
         "Saxenda ist ein injzierbares Arzneimittel, das entwickelt wurde, um Erwachsenen mit Adipositas beim Abnehmen und Halten ihres Gewichts zu helfen. Das Medikament wurde von dem Pharmaunternehmen Novo Nordisk entwickelt und ist ausschließlich auf Rezept erhältlich.",
       preis:
@@ -128,7 +128,7 @@ const MedicamentePage = () => {
     },
     {
       name: "Ozempic",
-      logo: "./ozempic-logo.png",
+      logo: "./logooze.webp",
       description:
         "Ozempic ist ein injzierbares Medikament, das zur Behandlung von Typ-2-Diabetes eingesetzt wird. Es gehört zu einer Klasse von Medikamenten, die als Glucagon-like Peptide-1 (GLP-1)-Rezeptoragonisten bekannt sind. Diese wirken auf die natürlichen GLP-1-Rezeptoren des Körpers, um den Blutzuckerspiegel zu regulieren.",
       preis:
@@ -143,7 +143,7 @@ const MedicamentePage = () => {
     },
     {
       name: "Wegovy",
-      logo: "./wegovy-logo.png",
+      logo: "./logowe.webp",
       description:
         "Wegovy enthält Semaglutid, ein GLP-1-Hormonanalogon, das Hunger- und Sättigungsgefühl reguliert. Es wird als ergänzende Therapie bei erwachsenen Patienten mit Adipositas oder Übergewicht eingesetzt, wenn mindestens eine gewichtsbedingte Begleiterkrankung wie Typ-2-Diabetes, Bluthochdruck oder hohes Cholesterin vorliegt.",
       preis:
@@ -158,7 +158,7 @@ const MedicamentePage = () => {
     },
     {
       name: "Mounjaro",
-      logo: "./mounjaro-logo.png",
+      logo: "./logomoun.webp",
       description:
         "Mounjaro enthält den Wirkstoff Tirzepatid und wird zur Behandlung von Typ-2-Diabetes und zur Gewichtskontrolle eingesetzt. Mounjaro beeinflusst das Hunger- und Sättigungsgefühl. Es senkt den Blutzuckerspiegel und verbessert die Insulinproduktion im Körper. Das Medikament hat zudem positive Effekte auf die Gewichtsabnahme.",
       preis:
@@ -173,7 +173,7 @@ const MedicamentePage = () => {
     },
     {
       name: "Rybelsus",
-      logo: "./rybelsus-logo.png",
+      logo: "./logorybe.webp",
       description:
         "Rybelsus wird zur Behandlung von Typ-2-Diabetes eingesetzt. Es regelt die Insulinproduktion an und senkt die Zuckerproduktion der Leber, wodurch der Blutzuckerspiegel stabil bleibt und Risiken wie Herzkrankheiten, Schlaganfälle und Nierenschäden reduziert werden können.",
       preis:
@@ -188,7 +188,7 @@ const MedicamentePage = () => {
     },
     {
       name: "Mysimba",
-      logo: "./mysimba-logo.png",
+      logo: "./logomyse.webp",
       description:
         "Mysimba ist ein oral einzunehmendes Medikament, das Erwachsenen mit Adipositas hilft, Gewicht zu verlieren und das Gewicht zu halten. Dieses Medikament wirkt auf Bereiche im Gehirn, die an der Regulierung der Nahrungsaufnahme und des Energieverbrauchs beteiligt sind, und beeinflusst spezifische Heißhungerattacken.",
       preis:
@@ -208,7 +208,7 @@ const MedicamentePage = () => {
       <MedicamentHeader />
       <DoctorVerification />
 
-      <section className="medicament-intro">
+      <section className="medicament-intro" style={{background:'#f3efeb'}}>
         <h2>Medikamente zur Gewichtsreduktion</h2>
         <p>
           Bei medizinischer Indikation können folgende verschreibungspflichtige Medikamente zur Gewichtsreduktion

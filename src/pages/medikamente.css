@@ -4,7 +4,7 @@
 
    .medicament-page {
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: #f3efeb;
   }
   
   /* ============================================
@@ -115,14 +115,14 @@
      MEDICATIONS GRID
      ============================================ */
   .medications-logos-section {
-    max-width: 1200px;
-    margin: 60px auto;
+    max-width: 50%;
+    margin: 60px 13%;
     padding: 0 40px;
   }
   
   .medications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
     gap: 30px;
     margin-bottom: 60px;
   }
@@ -382,3 +382,14 @@
     }
   }
   
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #ede8e2;
+    padding: 25px;
+    border-radius: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 40px;
+    padding-left:15%
+  }

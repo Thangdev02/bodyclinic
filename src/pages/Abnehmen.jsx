@@ -9,40 +9,41 @@ import BMICalculator from "../components/Home/BMICalculator"
 import Testimonials from "../components/Home/Testimonials"
 import DoctorsSection from "../components/Home/DoctorsSection"
 import Finden from "../components/Home/Finden"
+import CTASection from "../components/Home/CTASection"
 
 // ============ HERO SECTION ============
 const HeroSection = () => {
-    return (
-      <>
-       <div className="hero-section">
-  <div className="hero-content container">
-    <h1 className="hero-title">
-      Medizinisches <br /> Abnehmen
-    </h1>
-    <p className="text-3xl">Programme</p>
-  </div>
-
-  {/* Shapes */}
-  <div className="hero-shapes">
-    <div className="shape shape-1"></div>
-    <div className="shape shape-2"></div>
-    <div className="shape shape-3"></div>
-  </div>
-</div>
-
-  
-        <div className="author-info">
-          <img src="./avtdoctor.webp" alt="Dr. Nicolette Lammers" className="avatar" />
-          <div>
-            <p>Diese Seite wurde von</p>
-            <p>
-              <strong>Dr. Nicolette Lammers</strong> geprüft.
-            </p>
-          </div>
+  return (
+    <>
+      <div className="hero-section">
+        <div className="hero-content container">
+          <h1 className="hero-title">
+            Medizinisches <br /> Abnehmen
+          </h1>
+          <p className="text-3xl">Programme</p>
         </div>
-      </>
-    )
-  }
+
+        {/* Shapes */}
+        <div className="hero-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+      </div>
+
+
+      <div className="author-info">
+        <img src="./avtdoctor.webp" alt="Dr. Nicolette Lammers" className="avatar" />
+        <div>
+          <p>Diese Seite wurde von</p>
+          <p>
+            <span style={{ color: '#568a9a' }}>Dr. Nicolette Lammers</span> geprüft.
+          </p>
+        </div>
+      </div>
+    </>
+  )
+}
 // ============ MEDICATION INFO SECTION ============
 const MedicationInfoSection = () => {
   return (
@@ -61,6 +62,24 @@ const MedicationInfoSection = () => {
           Hause schickt.
         </p>
         <button className="btn-primary">Medikamente ansehen</button>
+      </div>
+    </div>
+  )
+}
+
+const MedikationInfoSection = () => {
+  return (
+    <div className="medication-info-section" style={{ background: 'linear-gradient(135deg, #ede8e2 0%, #ede8e2 100%)' }}>
+      <div className="medication-container">
+        <h2 style={{ width: '90%' }}>Information zum Abnehmen ohne Medikamente</h2>
+        <p className="">
+          Für Ihre Gewichtsreduktion kann auch eine medikamentenfreie Therapie eine geeignete Alternative sein. Bei The Body Clinic umfasst diese unter anderem individuell abgestimmte Sitzungen mit zertifizierten Ernährungscoaches sowie ergänzende digitale Bewegungsprogramme.
+        </p>
+        <p>
+          Im Mittelpunkt stehen eine langfristige Umstellung der Ernährungsgewohnheiten und eine ganzheitliche Beratung zu Lebensstilveränderungen – individuell auf Ihre Bedürfnisse zugeschnitten.
+          Die Grundlage dieser Therapie bildet ein ärztliches Beratungsgespräch. Sie eignet sich insbesondere für Personen, bei denen keine medikamentöse Behandlung erforderlich oder gewünscht ist.
+        </p>
+        <button className="btn-primary">Mehr erfahren</button>
       </div>
     </div>
   )
@@ -158,36 +177,13 @@ const ExpertsSection = () => {
           <button className="btn-primary">Unsere Geschichte</button>
         </div>
       </div>
-     
+
     </div>
   )
 }
 
 // ============ SAFETY SECTION ============
-const SafetySection = () => {
-  return (
-    <div className="safety-section">
-      <div className="safety-container">
-        <div className="safety-content">
-          <h2>Sicherheit von Abnehmspritzen zur Gewichtsabnahme</h2>
-          <p>
-            Medikamente, die bei Vorliegen einer medizinischen Indikation für Ihre Behandlung in Betracht kommen
-            könnten, sind von der Europäischen Kommission und weiteren Gesundheitsbehörden zugelassen, was bedeutet,
-            dass sie nach intensiven, regulierten Tests als sicher und wirksam eingestuft wurden.
-          </p>
-          <p>
-            Wie andere Medikamente können auch Abnehmspritzen Nebenwirkungen wie Übelkeit und Durchfall verursachen.
-            Unter <span className="link">Medikamente</span> können Sie die häufigsten Nebenwirkungen nachlesen. In
-            Deutschland sind Abnehmspritzen ausschließlich auf Rezept erhältlich.
-          </p>
-        </div>
-        <div className="safety-image">
-          <img src="./schier.webp" alt="Medical consultation" className="consultation-photo" />
-        </div>
-      </div>
-    </div>
-  )
-}
+
 
 // ============ EFFECT SECTION ============
 const EffectSection = () => {
@@ -268,6 +264,34 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   )
 }
 
+const SubHeroSection = () => {
+  return (
+    <section
+      className=" relative w-full h-[80vh] bg-center bg-cover flex items-center"
+      style={{
+        backgroundImage:
+          "url('./abbanner.jpg')",
+      }}
+    >
+      {/* Overlay mờ tối để chữ nổi bật */}
+      <div className=" absolute inset-0 bg-black/40"></div>
+
+      {/* Nội dung chính */}
+      <div className="container relative z-10 max-w-3xl px-6 md:px-16 text-white">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          Ihre Reise zu <br />
+          nachhaltigem <br />
+          Gewichtsverlust <br />
+          beginnt hier
+        </h1>
+
+        <button className="bg-[#3A8CA4] hover:bg-[#327a8e] transition-colors text-white font-medium text-lg px-10 py-4 rounded-full shadow-lg">
+          Termin vereinbaren
+        </button>
+      </div>
+    </section>
+  );
+}
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null)
 
@@ -345,18 +369,19 @@ export default function AbnehmenPage() {
     <div className="abnehmen-page">
       <HeroSection />
       {/* <ProgramComparisonSection /> */}
- <Finden />
- <BMICalculator />
-      <MedicationInfoSection />
-         <Testimonials />
-      <ExpertsSection />
-        <DoctorsSection />
-        <IndicationsSection />
-      <EffectSection />
+      <section style={{ background: 'linear-gradient(135deg, #f4efec 0%, #f4efec 100%)' }}>
+        <div className="container py-24" >
+          <h1>Was ist medizinisches Abnehmen?</h1>
+          <p style={{ fontSize: '18px', lineHeight: '1.5', marginTop: '1rem' }}>Medizinisches Abnehmen setzt auf nicht-invasive, ärztlich begleitete Therapiekonzepte – medikamentös (z. B. GLP-1) oder medikamentenfrei, individuell angepasst unter Einsatz von Ernährungscoaching, Bewegungstherapien und regelmäßiger Begleitung. Ziel ist es, auf sichere und individuelle Weise Gewicht zu verlieren – unter fachlicher Aufsicht.</p>
+        </div>
+      </section>
 
-      <SafetySection />
-      
-      <FAQSection />
+      <Finden />
+      <MedicationInfoSection />
+      <MedikationInfoSection />
+      <SubHeroSection />
+      <Testimonials />
+
     </div>
   )
 }
