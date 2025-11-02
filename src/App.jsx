@@ -12,10 +12,10 @@ import Spritzen from "./pages/Tabletten/Spritzen/Spritzen";
 import Medikament from "./pages/Tabletten/Medikamente/Medikamente";
 import Ozempic from "./pages/Medikamente/Ozempic/Ozempic";
 import Wegovy from "./pages/Medikamente/Wegovy/Wegovy";
-import Mounjaro from "./pages/Medikamente/Mounjaro/mounjaro";
 import Saxenda from "./pages/Medikamente/Saxenda/Saxenda";
 import Mysimba from "./pages/Mysimba/Mysimba.JSX";
 import Rybelsus from "./pages/Medikamente/Rybelsus/Rybelsus";
+import Mounjaro from "./pages/Medikamente/Mounjaro/mounjaro";
 
 
 function App() {
