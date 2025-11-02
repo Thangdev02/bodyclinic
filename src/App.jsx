@@ -14,8 +14,8 @@ import Ozempic from "./pages/Medikamente/Ozempic/Ozempic";
 import Wegovy from "./pages/Medikamente/Wegovy/Wegovy";
 import Saxenda from "./pages/Medikamente/Saxenda/Saxenda";
 import Rybelsus from "./pages/Medikamente/Rybelsus/Rybelsus";
-import Mounjaro from "./pages/Medikamente/Mounjaro/mounjaro";
 import Mysimba from "./pages/Mysimba/Mysimba.jsx";
+import Mounjaro from "./pages/Medikamente/Mounjaro/mounjaro";
 
 
 function App() {
