@@ -10,6 +10,7 @@ import Testimonials from "../components/Home/Testimonials"
 import DoctorsSection from "../components/Home/DoctorsSection"
 import Finden from "../components/Home/Finden"
 import CTASection from "../components/Home/CTASection"
+import FuBnoten from "../components/FuBnoten"
 
 // ============ HERO SECTION ============
 const HeroSection = () => {
@@ -380,7 +381,8 @@ export default function AbnehmenPage() {
       <MedicationInfoSection />
       <MedikationInfoSection />
       <SubHeroSection />
-      <Testimonials />
+      <Testimonials />  
+      <FuBnoten/>
 
     </div>
   )

@@ -1,4 +1,28 @@
+import CTASection from "../components/Home/CTASection"
 import "./ueberUns.css"
+
+const HeroSection = () => {
+  return (
+      <>
+          <div className="hero-section">
+              <div className="hero-content container">
+                  <h1 className="hero-title">
+                  Über uns
+                  </h1>
+                  <p className="text-3xl">The Body Clinic
+                  </p>
+              </div>
+
+              {/* Shapes */}
+              <div className="hero-shapes">
+                  <div className="shape shape-1"></div>
+                  <div className="shape shape-2"></div>
+                  <div className="shape shape-3"></div>
+              </div>
+          </div>
+      </>
+  )
+}
 
 const UeberUnsPage = () => {
   const sections = [
@@ -39,12 +63,7 @@ const UeberUnsPage = () => {
   return (
     <div className="ueber-uns-page">
       {/* Hero Section */}
-      <section className="ueber-uns-hero">
-        <div className="ueber-uns-hero-content">
-          <h1 className="ueber-uns-hero-title">Über uns</h1>
-          <p className="ueber-uns-hero-subtitle">The Body Clinic</p>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Content Sections */}
       <div className="ueber-uns-content">
@@ -60,6 +79,7 @@ const UeberUnsPage = () => {
           </section>
         ))}
       </div>
+      <CTASection/>
     </div>
   )
 }

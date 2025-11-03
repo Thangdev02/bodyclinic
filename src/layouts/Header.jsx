@@ -134,14 +134,62 @@ export default function Header() {
             </Link>
 
             {/* Über uns */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenDropdown("ueber-uns")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
               <Link
                 to="/ueber-uns"
                 className="text-white font-medium flex items-center gap-1 hover:text-gray-900 transition"
               >
-                Über uns
+                Uber uns
                 <ChevronDown size={18} />
               </Link>
+
+              {/* Dropdown menu */}
+              {openDropdown === "ueber-uns" && (
+                <div
+                  className="absolute left-0 mt-2 bg-white text-gray-700 rounded-lg shadow-lg py-2 w-64 animate-slide-down"
+                >
+                  <Link
+                    to="/geschichte"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                     Unsenre Geschichte
+                  </Link>
+                  <Link
+                    to="/standorte"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                    Standorte
+                  </Link>
+                  <Link
+                    to="/team"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                   Team
+                  </Link>
+                  <Link
+                    to="/stellenangebote"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                   Stellenangebote
+                  </Link>
+                  <Link
+                    to="/blog"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                   Blog 
+                  </Link>
+                  <Link
+                    to="/kontakt"
+                    className="block px-4 py-2 hover:bg-gray-100 transition text-black"
+                  >
+                  Kontakt
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Language Selector */}

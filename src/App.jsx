@@ -16,6 +16,12 @@ import Saxenda from "./pages/Medikamente/Saxenda/Saxenda";
 import Rybelsus from "./pages/Medikamente/Rybelsus/Rybelsus";
 import Mysimba from "./pages/Mysimba/Mysimba.jsx";
 import Mounjaro from "./pages/Medikamente/Mounjaro/Mounjaro";
+import Geschichte from "./pages/UberUns/Geschichte.jsx";
+import Standotre from "./pages/UberUns/Standorte/Standorte.jsx";
+import Team from "./pages/UberUns/Team/Team.jsx";
+import Stellenangebote from "./pages/UberUns/Stellenangebote/Stellenangebote.jsx";
+import Blog from "./pages/UberUns/Blog/Blog.jsx";
+import Kontakt from "./pages/UberUns/Kontakt/Kontakt.jsx";
 
 
 function App() {
@@ -38,6 +44,12 @@ function App() {
       <Route path="/mysimba" element={<Mysimba />} />
       <Route path="/erfahrungen" element={<ErfahrungenPage />} />
       <Route path="/ueber-uns" element={<UeberUnsPage />} />
+      <Route path="/geschichte" element={<Geschichte />} />
+      <Route path="/standorte" element={<Standotre />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/stellenangebote" element={<Stellenangebote />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/kontakt" element={<Kontakt />} />
 
     </Routes>
   <Footer/>
