@@ -1,8 +1,12 @@
-"use client"
-import { motion } from "framer-motion"
-import { PlayCircle } from "react-bootstrap-icons"
+"use client";
+
+import { motion } from "framer-motion";
+import { PlayCircle } from "react-bootstrap-icons";
+import { useTranslation } from "react-i18next";
 
 export default function ExpertsSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-gradient-to-b from-[#ede8e2] to-[#ede8e2] py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -19,21 +23,18 @@ export default function ExpertsSection() {
 
           {/* Right - Content */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">Experten für medizinisches Abnehmen</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Wir legen Wert auf Qualität und Ganzheitlichkeit: Sie erhalten persönliche, individuelle Betreuung durch
-              approbierte Fachärzt:innen und Ernährungscoaches für nachhaltige Ergebnisse. Sie sprechen mit echten
-              Menschen, nicht mit Algorithmen.
-            </p>
-            <p className="text-gray-700 mb-8 leading-relaxed">
-              Wir freuen uns auf Sie – in unseren Praxen in Berlin, München, Hamburg oder Online.
-            </p>
-            <button className=" text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition" style={{ backgroundColor: "#417485" }}>
-              Unsere Programme
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">{t("experts.title")}</h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">{t("experts.desc.1")}</p>
+            <p className="text-gray-700 mb-8 leading-relaxed">{t("experts.desc.2")}</p>
+            <button
+              className="text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition"
+              style={{ backgroundColor: "#417485" }}
+            >
+              {t("experts.button")}
             </button>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

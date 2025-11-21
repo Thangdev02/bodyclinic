@@ -1,22 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function BMICalculator() {
-  const [height, setHeight] = useState(180)
-  const [weight, setWeight] = useState(75)
+  const { t } = useTranslation();
+  const [height, setHeight] = useState(180);
+  const [weight, setWeight] = useState(75);
 
-  const bmi = (weight / (height / 100) ** 2).toFixed(1)
+  const bmi = (weight / (height / 100) ** 2).toFixed(1);
 
   const getBMICategory = (bmi) => {
-    if (bmi < 18.5) return { category: "Untergewicht (BMI < 18.5)", color: "#d2f9ff" }
-    if (bmi < 25) return { category: "Normalgewicht (BMI 18,5 – 25)", color: "bg-cyan-200" }
-    if (bmi < 30) return { category: "Übergewicht (BMI 25 – 30)", color: "bg-yellow-200" }
-    return { category: "Adipositas (BMI > 30)", color: "bg-red-200" }
-  }
+    const value = Number.parseFloat(bmi);
+    if (value < 18.5) return { category: t("bmi.category.underweight"), color: "#d2f9ff" };
+    if (value < 25) return { category: t("bmi.category.normal"), color: "bg-cyan-200" };
+    if (value < 30) return { category: t("bmi.category.overweight"), color: "bg-yellow-200" };
+    return { category: t("bmi.category.obese"), color: "bg-red-200" };
+  };
 
-  const category = getBMICategory(Number.parseFloat(bmi))
+  const category = getBMICategory(bmi);
+  const message = bmi >= 18.5 && bmi < 25 ? t("bmi.message.normal") : t("bmi.message.other");
 
   return (
     <section className="bg-gradient-to-b from-[#f1ece7] to-[#f1ece7] py-20 px-4">
@@ -25,11 +29,10 @@ export default function BMICalculator() {
           {/* Left */}
           <div>
             <h2 className="text-5xl font-bold mb-6 text-gray-900" style={{ lineHeight: "1.2" }}>
-              Berechnen Sie, ob Abnehmen mit Spritzen für Sie geeignet ist
+              {t("bmi.title")}
             </h2>
             <p className="text-gray-700 text-lg" style={{ lineHeight: "2" }}>
-              Ermitteln Sie schnell und einfach Ihren BMI, um zu prüfen, ob medizinisches Abnehmen für Sie geeignet ist.
-              Geben Sie einfach Ihre Größe und Ihr Gewicht ein – unser Rechner zeigt Ihnen Ihr Ergebnis an
+              {t("bmi.desc")}
             </p>
           </div>
 
@@ -39,11 +42,11 @@ export default function BMICalculator() {
             animate={{ opacity: 1, x: 0 }}
             className="bg-white rounded-3xl p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold mb-8 text-gray-900">BMI-Rechner</h3>
+            <h3 className="text-2xl font-bold mb-8 text-gray-900">{t("bmi.calculator.title")}</h3>
 
             {/* Height */}
             <div className="mb-8">
-              <label className="block text-gray-900 font-medium mb-4">Größe</label>
+              <label className="block text-gray-900 font-medium mb-4">{t("bmi.height")}</label>
               <input
                 type="range"
                 min="120"
@@ -61,7 +64,7 @@ export default function BMICalculator() {
 
             {/* Weight */}
             <div className="mb-8">
-              <label className="block text-gray-900 font-medium mb-4">Gewicht</label>
+              <label className="block text-gray-900 font-medium mb-4">{t("bmi.weight")}</label>
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setWeight(Math.max(20, weight - 1))}
@@ -87,21 +90,18 @@ export default function BMICalculator() {
 
             {/* Result */}
             <div className="bg-gray-100 p-6 rounded-lg mb-6">
-              <p className="text-gray-600 mb-2">Ihr BMI</p>
+              <p className="text-gray-600 mb-2">{t("bmi.result")}</p>
               <p className="text-4xl font-bold text-gray-900">{bmi}</p>
             </div>
 
             {/* Category */}
             <div className={`${category.color} p-6 rounded-lg`}>
               <p className="font-bold text-gray-900 mb-3">{category.category}</p>
-              <p className="text-gray-800 text-1xl">
-                Ihr Körpergewicht liegt im gesunden Bereich. Eine medizinische Gewichtsreduktion mit Medikamenten ist
-                nicht erforderlich. Bei Fragen zu einem gesunden Lebensstil können Sie sich gerne an uns wenden.
-              </p>
+              <p className="text-gray-800 text-xl">{message}</p>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

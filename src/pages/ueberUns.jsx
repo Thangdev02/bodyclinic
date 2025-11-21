@@ -1,62 +1,64 @@
 import CTASection from "../components/Home/CTASection"
 import "./ueberUns.css"
+import { useTranslation } from "react-i18next"
 
 const HeroSection = () => {
-  return (
-      <>
-          <div className="hero-section">
-              <div className="hero-content container">
-                  <h1 className="hero-title">
-                  Über uns
-                  </h1>
-                  <p className="text-3xl">The Body Clinic
-                  </p>
-              </div>
+  const { t } = useTranslation()
 
-              {/* Shapes */}
-              <div className="hero-shapes">
-                  <div className="shape shape-1"></div>
-                  <div className="shape shape-2"></div>
-                  <div className="shape shape-3"></div>
-              </div>
-          </div>
-      </>
+  return (
+    <>
+      <div className="hero-section">
+        <div className="hero-content container">
+          <h1 className="hero-title">
+            {t("ueberuns.hero.title")}
+          </h1>
+          <p className="text-3xl">{t("ueberuns.hero.subtitle")}</p>
+        </div>
+
+        {/* Shapes */}
+        <div className="hero-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+      </div>
+    </>
   )
 }
 
 const UeberUnsPage = () => {
+  const { t } = useTranslation()
+
   const sections = [
     {
       id: "geschichte",
-      title: "Unsere Geschichte",
-      description:
-        "The Body Clinic ist seit über 15 Jahren ein führender Privatpraxenverbund im Bereich ästhetischer Behandlungen und medizinischer Gewichtsreduktion. Seit 2025 sind wir auch mit drei Standorten in Berlin, München und Hamburg sowie deutschlandweit via Telemedzin vertreten!",
+      title: t("ueberuns.section.geschichte.title"),
+      description: t("ueberuns.section.geschichte.desc"),
     },
     {
       id: "standorte",
-      title: "Standorte",
-      description: "Erfahren Sie mehr über die Standorte von The Body Clinic in Deutschland und den Niederlanden.",
+      title: t("ueberuns.section.standorte.title"),
+      description: t("ueberuns.section.standorte.desc"),
     },
     {
       id: "team",
-      title: "Team & Partner",
-      description: "Lernen Sie Ihre begleitenden Ärzte, Ernährungscoaches und Partner kennen.",
+      title: t("ueberuns.section.team.title"),
+      description: t("ueberuns.section.team.desc"),
     },
     {
       id: "stellen",
-      title: "Stellenangebote",
-      description: "Informieren Sie sich über unsere aktuellen Stellenausschreibungen.",
+      title: t("ueberuns.section.stellen.title"),
+      description: t("ueberuns.section.stellen.desc"),
     },
     {
       id: "blog",
-      title: "Blog",
-      description: "Lesen Sie hier alle unsere Blogeinträge.",
+      title: t("ueberuns.section.blog.title"),
+      description: t("ueberuns.section.blog.desc"),
     },
     {
       id: "kontakt",
-      title: "Kontakt",
-      description:
-        "Kontaktieren Sie uns gerne via Anruf, Email oder Termin­buchung – wir freuen uns jederzeit, von Ihnen zu hören!",
+      title: t("ueberuns.section.kontakt.title"),
+      description: t("ueberuns.section.kontakt.desc"),
     },
   ]
 
@@ -74,12 +76,12 @@ const UeberUnsPage = () => {
             </div>
             <div className="ueber-uns-section-right">
               <p className="ueber-uns-section-description">{section.description}</p>
-              <button className="ueber-uns-btn">Mehr lesen</button>
+              <button className="ueber-uns-btn">{t("ueberuns.btn.more")}</button>
             </div>
           </section>
         ))}
       </div>
-      <CTASection/>
+      <CTASection />
     </div>
   )
 }

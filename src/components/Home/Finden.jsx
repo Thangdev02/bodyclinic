@@ -1,59 +1,63 @@
-"use client"
-import { motion } from "framer-motion"
-import { CheckCircle } from "react-bootstrap-icons"
+"use client";
+
+import { motion } from "framer-motion";
+import { CheckCircle } from "react-bootstrap-icons";
+import { useTranslation } from "react-i18next";
 
 export default function Finden() {
+  const { t } = useTranslation();
+
   const programs = [
     {
-      title: "Abnehmen mit Spritzen",
+      title: t("finden.program.1.title"),
       features: [
-        "Ärztliche Betreuung",
-        "Ab 345€ - inkl. Abnehmspritzen",
-        "Lieferung, wenn gewünscht!",
-        "Gewichtsreduktion bis zu 22%",
+        t("finden.program.1.f1"),
+        t("finden.program.1.f2"),
+        t("finden.program.1.f3"),
+        t("finden.program.1.f4"),
       ],
-      price: "Mehr erfahren",
+      price: t("finden.program.1.button"),
     },
     {
-      title: "Abnehmen mit Tabletten",
+      title: t("finden.program.2.title"),
       features: [
-        "Ärztliche Betreuung",
-        "Preis auf Nachfrage",
-        "Lieferung, wenn gewünscht!",
-        "Gewichtsreduktion bis zu 15%",
+        t("finden.program.2.f1"),
+        t("finden.program.2.f2"),
+        t("finden.program.2.f3"),
+        t("finden.program.2.f4"),
       ],
-      price: "Mehr erfahren",
+      price: t("finden.program.2.button"),
     },
     {
-      title: "Abnehmen ohne Medikamente",
-      features: ["Ernährungstherapeutische Anamnese", "Ab 120€", "Individuelle Programmdauer"],
-      price: "Mehr erfahren",
+      title: t("finden.program.3.title"),
+      features: [
+        t("finden.program.3.f1"),
+        t("finden.program.3.f2"),
+        t("finden.program.3.f3"),
+      ],
+      price: t("finden.program.3.button"),
     },
-  ]
+  ];
 
   const leftFeatures = [
-    "Persönliches Coaching durch Experten",
-    "Zugang zu Online-Fitnessplattform",
-    "Individuelle Pläne und Hilfsmittel zur Unterstützung Ihrer Abnehmreise",
-  ]
+    t("finden.included.1"),
+    t("finden.included.2"),
+    t("finden.included.3"),
+  ];
 
   return (
-    <section className=" bg-gradient-to-b from-[#ede8e2] to-[#ede8e2] py-20 px-4">
+    <section className="bg-gradient-to-b from-[#ede8e2] to-[#ede8e2] py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl font-bold text-start mb-4 text-gray-900">Finden Sie Ihre Abnehmethode</h2>
+        <h2 className="text-5xl font-bold text-start mb-4 text-gray-900">{t("finden.title")}</h2>
         <p className="text-start text-gray-700 mb-16 text-lg">
-          Individuelle, ärztlich abgestimmte Programme – mit oder ohne Medikamente.
+          {t("finden.desc")}
         </p>
 
         <div className="grid grid-cols-12 gap-8">
           {/* Left Column */}
           <div className="col-span-3">
-            <h3 className="text-2xl font-bold mb-8 text-gray-900">
-              In allen
-              <br />
-              Programmen
-              <br />
-              enthalten:
+            <h3 className="text-2xl font-bold mb-8 text-gray-900 whitespace-pre-line">
+              {t("finden.all_included")}
             </h3>
             <div className="space-y-4">
               {leftFeatures.map((feature, idx) => (
@@ -73,7 +77,8 @@ export default function Finden() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className=" rounded-2xl p-8 flex flex-col" style={{ backgroundColor: "#d8dfe0" }}
+                className="rounded-2xl p-8 flex flex-col"
+                style={{ backgroundColor: "#d8dfe0" }}
               >
                 <h4 className="text-xl font-bold mb-6 text-gray-900">{program.title}</h4>
                 <div className="flex-1 space-y-4 mb-8">
@@ -84,7 +89,10 @@ export default function Finden() {
                     </div>
                   ))}
                 </div>
-                <button className=" text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition w-full" style={{ backgroundColor: "#417485" }}>
+                <button
+                  className="text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition w-full"
+                  style={{ backgroundColor: "#417485" }}
+                >
                   {program.price}
                 </button>
               </motion.div>
@@ -93,5 +101,5 @@ export default function Finden() {
         </div>
       </div>
     </section>
-  )
+  );
 }

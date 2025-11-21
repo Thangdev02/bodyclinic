@@ -1,65 +1,48 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react"
-import { motion } from "framer-motion"
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function StatsScrollSection() {
-  const textRef = useRef(null)
+  const textRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
       if (textRef.current) {
-        const rect = textRef.current.getBoundingClientRect()
-        const windowHeight = window.innerHeight
+        const rect = textRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-        // Calculate scroll progress (0 to 1) as section enters viewport
-        const scrollProgress = Math.max(0, Math.min(1, 1 - rect.top / windowHeight))
+        const scrollProgress = Math.max(0, Math.min(1, 1 - rect.top / windowHeight));
 
-        // Get all text spans and animate color
-        const spans = textRef.current.querySelectorAll("span.text-char")
+        const spans = textRef.current.querySelectorAll("span.text-char");
         spans.forEach((span, index) => {
-          // Stagger the color change for each character
-          const charProgress = Math.max(0, scrollProgress - index * 0.01)
-          const grayValue = Math.round(160 - charProgress * 60) // 160 (gray) to 100 (darker)
-          span.style.color = `rgb(${grayValue}, ${grayValue}, ${grayValue})`
-        })
+          const charProgress = Math.max(0, scrollProgress - index * 0.01);
+          const grayValue = Math.round(160 - charProgress * 60);
+          span.style.color = `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
+        });
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const stats = [
-    {
-      value: "22%",
-      label: "BIS ZU 22% GEWICHTSVERLUST",
-    },
-    {
-      value: "4.500",
-      label: ">4.5 TSD. PATIENT:INNEN",
-    },
-    {
-      value: "5,0",
-      label: "5.0 AUF GOOGLE",
-    },
-    {
-      value: "10",
-      label: "10 ÄRZTPRAXEN",
-    },
-  ]
+    { value: t("stats.1.value"), label: t("stats.1.label") },
+    { value: t("stats.2.value"), label: t("stats.2.label") },
+    { value: t("stats.3.value"), label: t("stats.3.label") },
+    { value: t("stats.4.value"), label: t("stats.4.label") },
+  ];
 
-  // Function to split text into individual characters for animation
   const renderTextWithCharSpans = (text) => {
     return text.split("").map((char, idx) => (
       <span key={idx} className="text-char">
         {char}
       </span>
-    ))
-  }
-
-  const fullText =
-    "Sie individuelle, ärztlich begleitete Konzepte für nachhaltige Gewichtsabnahme mit oder ohne Medikamente – seit über 15 Jahren bewährt und jetzt auch in Deutschland."
+    ));
+  };
 
   return (
     <section className="w-full bg-gradient-to-b from-[#ede8e2] to-[#ede8e2] py-20 px-4 sm:px-8 lg:px-16">
@@ -75,21 +58,27 @@ export default function StatsScrollSection() {
               viewport={{ once: true, margin: "-50px" }}
               className="text-center"
             >
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">{stat.value}</div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-600 tracking-wide uppercase">{stat.label}</p>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
+                {stat.value}
+              </div>
+              <p className="text-xs sm:text-sm font-semibold text-gray-600 tracking-wide uppercase">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Scroll Animated Text - Text fills in from gray to black */}
+      {/* Scroll Animated Text */}
       <div className="max-w-4xl mx-auto text-even">
-        <div  style={{lineHeight: "1.6"}} ref={textRef} className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold leading-tight ">
-          <span className="text-gray-900">Mit der Body Clinic finden </span>
+        <div style={{ lineHeight: "1.6" }} ref={textRef} className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+          <span className="text-gray-900">{t("stats.text.intro")}</span>
           <br />
-          <span  style={{lineHeight: "1.6"}} className="text-gray-400">{renderTextWithCharSpans(fullText)}</span>
+          <span style={{ lineHeight: "1.6" }} className="text-gray-400">
+            {renderTextWithCharSpans(t("stats.text.full"))}
+          </span>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -14,7 +14,6 @@ import Ozempic from "./pages/Medikamente/Ozempic/Ozempic";
 import Wegovy from "./pages/Medikamente/Wegovy/Wegovy";
 import Saxenda from "./pages/Medikamente/Saxenda/Saxenda";
 import Rybelsus from "./pages/Medikamente/Rybelsus/Rybelsus";
-import Mysimba from "./pages/Mysimba/Mysimba.jsx";
 import Mounjaro from "./pages/Medikamente/Mounjaro/Mounjaro";
 import Geschichte from "./pages/UberUns/Geschichte.jsx";
 import Standotre from "./pages/UberUns/Standorte/Standorte.jsx";
@@ -22,6 +21,7 @@ import Team from "./pages/UberUns/Team/Team.jsx";
 import Stellenangebote from "./pages/UberUns/Stellenangebote/Stellenangebote.jsx";
 import Blog from "./pages/UberUns/Blog/Blog.jsx";
 import Kontakt from "./pages/UberUns/Kontakt/Kontakt.jsx";
+import Mysimba from "./pages/Mysimba/Mysimba.JSX";
 
 
 function App() {

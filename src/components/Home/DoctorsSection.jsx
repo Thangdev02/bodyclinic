@@ -1,29 +1,32 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "react-bootstrap-icons"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import { useTranslation } from "react-i18next";
 
 export default function DoctorsSection() {
+  const { t } = useTranslation();
+
   const doctors = [
-    { name: "Dr. Nicolette Lammers", role: "Arzt",avatar:"./doctor1.webp" },
-    { name: "Dr. Dr. Torsten Schröder", role: "Arzt",avatar:"./doctor2.webp" },
-    { name: "Dr. medic Stanislav Kvint", role: "Arzt",avatar:"./doctor3.webp" },
-    { name: "Dr. med. Newroz Narcin", role: "Arzt",avatar:"./doctor4.webp" },
-    { name: "Nadine Meier", role: "Ernährungscoach",avatar:"./doctor5.webp" },
-  ]
+    { name: "Dr. Nicolette Lammers", role: "Arzt", avatar: "./doctor1.webp" },
+    { name: "Dr. Dr. Torsten Schröder", role: "Arzt", avatar: "./doctor2.webp" },
+    { name: "Dr. medic Stanislav Kvint", role: "Arzt", avatar: "./doctor3.webp" },
+    { name: "Dr. med. Newroz Narcin", role: "Arzt", avatar: "./doctor4.webp" },
+    { name: "Nadine Meier", role: "Ernährungscoach", avatar: "./doctor5.webp" },
+  ];
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const showDoctors = doctors.slice(currentIndex, currentIndex + 5)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const showDoctors = doctors.slice(currentIndex, currentIndex + 5);
 
   return (
     <section className="bg-gradient-to-b from-[#f3efeb] to-[#f3efeb] py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Begleitende Ärzte</h2>
+        <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+          {t("doctors.title")}
+        </h2>
         <p className="text-center text-gray-700 mb-12">
-          Echte Ärzte, individuelle Begleitung: Diese erfahrenen, approbierten Mediziner:innen entwickeln in
-          persönlichen Gesprächen die für Sie beste Therapie für nachhaltigen Gewichtsverlust.
+          {t("doctors.desc")}
         </p>
 
         {/* Doctors Grid */}
@@ -73,11 +76,14 @@ export default function DoctorsSection() {
 
         {/* More Button */}
         <div className="flex justify-center">
-          <button className=" text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition" style={{ backgroundColor: "#417485" }}>
-            Mehr erfahren
+          <button
+            className="text-white px-8 py-3 rounded-full font-medium hover:bg-teal-800 transition"
+            style={{ backgroundColor: "#417485" }}
+          >
+            {t("doctors.button")}
           </button>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,8 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function CTASection() {
+  const { t } = useTranslation();
+
   return (
     <section
       className="relative py-24 px-4 overflow-hidden"
@@ -28,17 +31,16 @@ export default function CTASection() {
           viewport={{ once: true }}
           className="text-left"
         >
-          <h2 className="text-5xl font-bold mb-6 text-white">Vereinbaren Sie einen Termin</h2>
+          <h2 className="text-5xl font-bold mb-6 text-white">{t("cta.title")}</h2>
           <p className="text-white text-lg mb-10 max-w-lg leading-relaxed opacity-95">
-            Klicken Sie auf den Button unten, um Ihre Videosprechstunde zu buchen. Wir freuen uns darauf, Sie auf Ihrem
-            Weg zu einem gesunden Gewicht zu begleiten.
+            {t("cta.desc")}
           </p>
 
           <button className="bg-teal-700 hover:bg-teal-800 text-white px-10 py-3 rounded-full font-bold text-base transition-colors duration-300 shadow-lg">
-            Termin vereinbaren
+            {t("cta.button")}
           </button>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

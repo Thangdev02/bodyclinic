@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Kontakt = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,29 +16,22 @@ const Kontakt = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Vielen Dank! Ihre Nachricht wurde gesendet.");
+    alert(t("kontakt.alert"));
     console.log("Form submitted:", formData);
-    // Gửi qua EmailJS, Formspree, hoặc backend ở đây
   };
 
   return (
     <div className="min-h-screen bg-[#bcb0a1] relative overflow-hidden">
-      {/* Decorative Circles */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-[#e8e0d8] rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute bottom-10 right-20 w-96 h-96 bg-[#c9beb4] rounded-full opacity-40 blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left: Contact Info */}
           <div className="text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Kontakt</h1>
-            <p className="text-lg opacity-90 mb-10 leading-relaxed">
-              Bitte kontaktieren Sie uns – wir freuen uns darauf,<br />
-              von Ihnen zu hören.
-            </p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">{t("kontakt.title")}</h1>
+            <p className="text-lg opacity-90 mb-10 leading-relaxed" dangerouslySetInnerHTML={{ __html: t("kontakt.desc") }} />
 
             <div className="space-y-8">
-              {/* Phone */}
               <div className="flex items-center gap-4">
                 <div className="bg-white/20 p-3 rounded-full">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -44,12 +39,11 @@ const Kontakt = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm uppercase tracking-wider opacity-80">Rufen Sie uns an</p>
-                  <p className="text-xl font-medium">(+49) 30 2332–05740</p>
+                  <p className="text-sm uppercase tracking-wider opacity-80">{t("kontakt.phone.label")}</p>
+                  <p className="text-xl font-medium">{t("kontakt.phone.number")}</p>
                 </div>
               </div>
 
-              {/* Email */}
               <div className="flex items-center gap-4">
                 <div className="bg-white/20 p-3 rounded-full">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -57,20 +51,18 @@ const Kontakt = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm uppercase tracking-wider opacity-80">Email us</p>
-                  <p className="text-xl font-medium">info@bodyclinic.de</p>
+                  <p className="text-sm uppercase tracking-wider opacity-80">{t("kontakt.email.label")}</p>
+                  <p className="text-xl font-medium">{t("kontakt.email.address")}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Contact Form */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-10">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Name <span className="text-red-500">*</span>
+                  {t("kontakt.form.name")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -79,14 +71,13 @@ const Kontakt = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
-                  placeholder="Ihr Name"
+                  placeholder={t("kontakt.form.name.placeholder")}
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  E-Mail <span className="text-red-500">*</span>
+                  {t("kontakt.form.email")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -95,14 +86,13 @@ const Kontakt = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
-                  placeholder="name@beispiel.de"
+                  placeholder={t("kontakt.form.email.placeholder")}
                 />
               </div>
 
-              {/* Phone */}
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Telefonnummer <span className="text-red-500">*</span>
+                  {t("kontakt.form.phone")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
@@ -111,14 +101,13 @@ const Kontakt = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition"
-                  placeholder="+49 123 456789"
+                  placeholder={t("kontakt.form.phone.placeholder")}
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Nachricht <span className="text-red-500">*</span>
+                  {t("kontakt.form.message")} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -127,16 +116,15 @@ const Kontakt = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition resize-none"
-                  placeholder="Wie können wir Ihnen helfen?"
+                  placeholder={t("kontakt.form.message.placeholder")}
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full md:w-auto px-8 py-4 bg-teal-700 text-white font-medium rounded-full hover:bg-teal-800 transition shadow-lg hover:shadow-xl"
               >
-                Nachricht senden
+                {t("kontakt.form.button")}
               </button>
             </form>
           </div>
